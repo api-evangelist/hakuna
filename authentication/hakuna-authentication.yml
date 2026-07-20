@@ -1,0 +1,17 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hakuna-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: AuthToken
+  type: apiKey
+  in: header
+  parameter: X-Auth-Token
+  description: Personal API token managed under "My Settings". Organization endpoints require
+    a separate organization-level token; management endpoints require an admin token.
+  sources:
+  - openapi/hakuna-openapi.yml
