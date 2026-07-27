@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: probed /.well-known/ on app.hakuna.ch and www.hakuna.ch
+note: >-
+  No /.well-known/ discovery documents are published. app.hakuna.ch returns 302
+  (redirect to login) for every probed path; www.hakuna.ch returns 404. Recorded
+  for auditability; no WellKnown/SecurityTxt pointer is wired because nothing was
+  found.
+hosts:
+- host: https://app.hakuna.ch
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+  - path: /.well-known/openid-configuration
+    status: 302
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+  - path: /.well-known/api-catalog
+    status: 302
+  - path: /.well-known/ai-plugin.json
+    status: 302
+- host: https://www.hakuna.ch
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

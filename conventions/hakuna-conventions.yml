@@ -1,0 +1,50 @@
+generated: '2026-07-19'
+method: searched
+source: https://app.hakuna.ch/api_docs
+description: >-
+  Cross-cutting request/response conventions for the hakuna REST API — the
+  runtime semantics that apply across every operation, captured from the
+  published API documentation and derived from the OpenAPI in openapi/.
+base_url: https://app.hakuna.ch/api/v1
+api_style: REST over HTTPS, JSON requests and responses
+
+authentication:
+  scheme: API token in the X-Auth-Token request header
+  token_types:
+  - personal (managed under "My Settings")
+  - organization-level (required for the /organization/status endpoint)
+  - admin (required for /management/* endpoints)
+  docs: https://app.hakuna.ch/api_docs
+  detail: authentication/hakuna-authentication.yml
+
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key mechanism is documented. PUT/PATCH/DELETE are idempotent
+    by HTTP semantics, but hakuna publishes no Idempotency-Key header, so no
+    Idempotency pointer is wired.
+
+pagination:
+  style: none-documented
+  note: The API documentation does not describe pagination parameters or envelopes.
+
+filtering:
+  absences_by_year: GET /absences supports a `year` query parameter.
+
+versioning:
+  scheme: uri-path
+  current: v1
+  header: Accept-Version (optional override)
+  docs: https://app.hakuna.ch/api_docs
+  detail: lifecycle/hakuna-lifecycle.yml
+
+error_envelope:
+  media_type: application/json
+  shape: JSON object with a descriptive `message` field
+  detail: errors/hakuna-problem-types.yml
+
+rate_limit_signaling:
+  limit: 100 requests per minute per customer
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After]
+  throttled_status: 429
+  detail: rate-limits/hakuna-rate-limits.yml

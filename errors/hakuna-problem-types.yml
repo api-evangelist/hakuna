@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hakuna-openapi.yml
+format: json-message
+description: >-
+  Error catalog derived from the HTTP response codes in the hakuna OpenAPI. The
+  API returns errors as JSON objects with a descriptive `message` field (not
+  RFC 9457 problem+json). Titles/remediation are derived from the documented
+  status semantics.
+envelope:
+  media_type: application/json
+  field: message
+problems:
+- status: 401
+  title: Unauthorized
+  meaning: The X-Auth-Token header is missing or invalid.
+  action: Supply a valid personal, organization, or admin token in X-Auth-Token.
+- status: 404
+  title: Not Found
+  meaning: The requested resource does not exist.
+  action: Verify the resource id in the path.
+- status: 422
+  title: Unprocessable Entity
+  meaning: The request payload failed validation.
+  action: Correct the invalid or missing fields and retry.
+- status: 429
+  title: Too Many Requests
+  meaning: The 100 requests/minute per-customer rate limit was exceeded.
+  action: Wait the number of seconds in the Retry-After header, then retry.

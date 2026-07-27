@@ -1,0 +1,32 @@
+{
+  "provider": "hakuna",
+  "sources": [
+    "hakuna-absences-api-openapi.yml",
+    "hakuna-company-api-openapi.yml",
+    "hakuna-management-api-openapi.yml",
+    "hakuna-organization-api-openapi.yml",
+    "hakuna-overview-api-openapi.yml",
+    "hakuna-projects-api-openapi.yml",
+    "hakuna-tasks-api-openapi.yml",
+    "hakuna-time-entries-api-openapi.yml",
+    "hakuna-timer-api-openapi.yml",
+    "hakuna-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "hakuna-absences-api-openapi.yml",
+    "hakuna-company-api-openapi.yml",
+    "hakuna-management-api-openapi.yml",
+    "hakuna-organization-api-openapi.yml",
+    "hakuna-overview-api-openapi.yml",
+    "hakuna-projects-api-openapi.yml",
+    "hakuna-tasks-api-openapi.yml",
+    "hakuna-time-entries-api-openapi.yml",
+    "hakuna-timer-api-openapi.yml",
+    "hakuna-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

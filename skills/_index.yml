@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/hakuna-openapi.yml
+skills:
+- file: hakuna-track-time.md
+  name: Track time with hakuna
+  api: openapi/hakuna-openapi.yml
+  operations: [getTimer, startTimer, stopTimer, createTimeEntry, listTimeEntries, getOverview]
+- file: hakuna-manage-projects.md
+  name: Manage hakuna projects and clients
+  api: openapi/hakuna-openapi.yml
+  operations: [listManagedClients, createManagedClient, listManagedProjects, createManagedProject, createManagedTask, getOrganizationStatus]

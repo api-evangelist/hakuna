@@ -1,22 +1,208 @@
 aid: hakuna
 name: Hakuna
-description: Hakuna is a company surfaced as a portfolio company of earlybird and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  hakuna AG is a Swiss digital time-tracking and personnel-management platform
+  for SMEs. The browser- and mobile-based product centralizes workforce
+  administration: time recording with a running timer, absence and vacation
+  management, expense processing, project and client tracking, task
+  categorization, shift planning, personnel records, and compliance monitoring
+  against Swiss labor-law requirements. hakuna is "100% Swiss" — all data is
+  stored in Switzerland under Swiss data-protection law (DSG) — and requires no
+  additional hardware terminals or badges. It exposes a token-authenticated REST
+  API (X-Auth-Token) over JSON at app.hakuna.ch/api/v1 covering the timer, time
+  entries, absences, projects, tasks, clients, users, company settings, and an
+  organization-wide presence status endpoint, with admin-only management
+  endpoints and a documented 100 requests/minute rate limit.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.hakuna.ch/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/hakuna/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - earlybird
-x-tier: stub
+x-tier: profiled
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Time Tracking
+- HR
+- Workforce Management
+- Absence Management
+- Project Tracking
+- SaaS
+- Switzerland
+- SME
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: hakuna:hakuna-absences-api
+  name: Hakuna Absences API
+  description: Absence records and absence categories
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Absences
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-absences-api-openapi.yml
+- aid: hakuna:hakuna-company-api
+  name: Hakuna Company API
+  description: Account-wide settings
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-company-api-openapi.yml
+- aid: hakuna:hakuna-management-api
+  name: Hakuna Management API
+  description: Admin-only management of projects, clients and tasks
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Management
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-management-api-openapi.yml
+- aid: hakuna:hakuna-organization-api
+  name: Hakuna Organization API
+  description: Organization-wide presence and absence status
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Organization
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-organization-api-openapi.yml
+- aid: hakuna:hakuna-overview-api
+  name: Hakuna Overview API
+  description: Aggregate metrics for the authenticated user
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Overview
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-overview-api-openapi.yml
+- aid: hakuna:hakuna-projects-api
+  name: Hakuna Projects API
+  description: Active and archived projects
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-projects-api-openapi.yml
+- aid: hakuna:hakuna-tasks-api
+  name: Hakuna Tasks API
+  description: Categorization tasks
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-tasks-api-openapi.yml
+- aid: hakuna:hakuna-time-entries-api
+  name: Hakuna Time Entries API
+  description: Recorded blocks of worked time
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Time Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-time-entries-api-openapi.yml
+- aid: hakuna:hakuna-timer-api
+  name: Hakuna Timer API
+  description: The single running timer for the authenticated user
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Timer
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-timer-api-openapi.yml
+- aid: hakuna:hakuna-users-api
+  name: Hakuna Users API
+  description: Users of the account
+  humanURL: https://app.hakuna.ch/api_docs
+  baseURL: https://app.hakuna.ch/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/hakuna-users-api-openapi.yml
+common:
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/hakuna-openapi-overlay.yaml
+- type: LLMsTxt
+  url: llms/hakuna-llms.txt
+- type: Conformance
+  url: conformance/hakuna-conformance.yml
+- type: MCPServer
+  url: mcp/hakuna-mcp.yml
+- type: DataModel
+  url: data-model/hakuna-data-model.yml
+- type: Lifecycle
+  url: lifecycle/hakuna-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/hakuna-problem-types.yml
+- type: Conventions
+  url: conventions/hakuna-conventions.yml
+- type: RateLimits
+  url: rate-limits/hakuna-rate-limits.yml
+- type: AgenticAccess
+  url: agentic-access/hakuna-agentic-access.yml
+- type: DomainSecurity
+  url: security/hakuna-domain-security.yml
+- type: Authentication
+  url: authentication/hakuna-authentication.yml
+- type: DeveloperPortal
+  url: https://app.hakuna.ch/api_docs
+- type: Documentation
+  url: https://www.hakuna.ch/docs
+- type: APIReference
+  url: https://app.hakuna.ch/api_docs
+- type: SignUp
+  url: https://app.hakuna.ch/sign_up
+- type: Login
+  url: https://app.hakuna.ch/
+- type: Pricing
+  url: https://www.hakuna.ch/preise
+- type: Support
+  url: https://www.hakuna.ch/kontakt
+- type: Blog
+  url: https://www.hakuna.ch/blog
+- type: TermsOfService
+  url: https://www.hakuna.ch/rechtliches/agb
+- type: PrivacyPolicy
+  url: https://www.hakuna.ch/rechtliches/datenschutz
+- type: Website
+  url: https://www.hakuna.ch
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/hakuna-openapi.yml
+description: >-
+  Candidate MCP tool surface derived one-to-one from the operations in the
+  hakuna OpenAPI. No official hosted/remote hakuna MCP server was found; this is
+  a governance starting point, not a published server.
+server:
+  name: hakuna
+  transport: http
+tools:
+- name: get_overview
+  description: Get overtime and vacation metrics for the authenticated user.
+  source_operation: openapi/hakuna-openapi.yml#getOverview
+- name: get_timer
+  description: Get the currently running timer.
+  source_operation: openapi/hakuna-openapi.yml#getTimer
+- name: start_timer
+  description: Start a new timer.
+  source_operation: openapi/hakuna-openapi.yml#startTimer
+- name: stop_timer
+  description: Stop the running timer.
+  source_operation: openapi/hakuna-openapi.yml#stopTimer
+- name: list_time_entries
+  description: List recorded time entries.
+  source_operation: openapi/hakuna-openapi.yml#listTimeEntries
+- name: create_time_entry
+  description: Create a recorded block of worked time.
+  source_operation: openapi/hakuna-openapi.yml#createTimeEntry
+- name: list_absences
+  description: List absences for a year.
+  source_operation: openapi/hakuna-openapi.yml#listAbsences
+- name: list_projects
+  description: List active and archived projects.
+  source_operation: openapi/hakuna-openapi.yml#listProjects
+- name: list_tasks
+  description: List categorization tasks.
+  source_operation: openapi/hakuna-openapi.yml#listTasks
+- name: get_organization_status
+  description: Get presence/absence status for all users (organization token).
+  source_operation: openapi/hakuna-openapi.yml#getOrganizationStatus
+- name: create_managed_project
+  description: Create a project (admin).
+  source_operation: openapi/hakuna-openapi.yml#createManagedProject
+- name: create_managed_client
+  description: Create a client (admin).
+  source_operation: openapi/hakuna-openapi.yml#createManagedClient

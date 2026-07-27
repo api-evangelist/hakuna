@@ -1,0 +1,29 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Hakuna
+providerId: hakuna
+generated: '2026-07-19'
+created: '2026-07-19'
+modified: '2026-07-19'
+method: searched
+source: https://app.hakuna.ch/api_docs
+tags:
+- Rate Limiting
+- Time Tracking
+description: >-
+  The hakuna API enforces a fixed limit of 100 requests per minute per customer.
+  Exceeding it returns HTTP 429 with a Retry-After header. Every response carries
+  the standard rate-limit headers.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+- name: All requests
+  scope: customer
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute

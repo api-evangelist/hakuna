@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://app.hakuna.ch/api_docs
+description: >-
+  Lifecycle posture for the hakuna API. Versioning is expressed in the URI path
+  (v1), with an optional Accept-Version header override. No public status page,
+  SLA document, or formal deprecation policy was found; those fields are recorded
+  as not-found rather than fabricated, so no StatusPage or Deprecation pointer is
+  wired.
+versioning:
+  scheme: uri-path
+  current: v1
+  header_override: Accept-Version
+  docs: https://app.hakuna.ch/api_docs
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

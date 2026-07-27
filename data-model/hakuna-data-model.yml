@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hakuna-openapi.yml
+description: >-
+  Entity-relationship graph derived from $ref links and id-reference fields in
+  the hakuna OpenAPI schemas.
+entities:
+- name: TimeEntry
+  description: A recorded block of worked time.
+- name: Timer
+  description: The single running timer for a user.
+- name: Absence
+  description: An absence record for a user.
+- name: AbsenceType
+  description: A category of absence.
+- name: Project
+  description: A project time can be tracked against.
+- name: Client
+  description: A client that projects belong to.
+- name: Task
+  description: A categorization task.
+- name: User
+  description: A user of the account.
+- name: Company
+  description: Account-wide settings.
+- name: OrganizationStatus
+  description: Presence/absence status for a user.
+relationships:
+- from: TimeEntry
+  to: Task
+  type: has_one
+  via: task
+- from: TimeEntry
+  to: Project
+  type: has_one
+  via: project
+- from: TimeEntry
+  to: User
+  type: belongs_to
+  via: user
+- from: Timer
+  to: Task
+  type: has_one
+  via: task
+- from: Timer
+  to: Project
+  type: has_one
+  via: project
+- from: Absence
+  to: AbsenceType
+  type: has_one
+  via: absence_type
+- from: Absence
+  to: User
+  type: belongs_to
+  via: user
+- from: Project
+  to: Client
+  type: belongs_to
+  via: client
+- from: OrganizationStatus
+  to: User
+  type: belongs_to
+  via: user
