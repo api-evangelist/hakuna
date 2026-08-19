@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "10cae41d-c862-4129-8641-0ace014b80d5",
+      "name": "Overview",
+      "description": {
+        "content": "Aggregate metrics for the authenticated user",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "267d4135-95d1-4e3a-8ea5-0295c6b6dbec",
+          "name": "Get overview metrics",
+          "request": {
+            "name": "Get overview metrics",
+            "description": {
+              "content": "Retrieve key metrics for the authenticated user, such as overtime and vacation balances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4ec7853-2dd0-4d33-973c-83e6042ae10b",
+              "name": "Overview metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"overtime\": \"string\",\n  \"vacation\": {\n    \"remaining\": 3047.0056528547516,\n    \"total\": 2201.9829402600067\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8705ce5b-918d-4ee5-95e8-ca6ac2e66c4f",
+              "name": "The auth token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8922bfca-3bf0-478e-a948-4fc6cdb30b18",
+              "name": "Too many requests. Limited to 100 requests per minute per customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Maximum requests allowed in the window.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "4042"
+                },
+                {
+                  "disabled": false,
+                  "description": "Requests remaining in the current window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "4042"
+                },
+                {
+                  "disabled": false,
+                  "description": "Seconds until the window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "4042"
+                },
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "4042"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.hakuna.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Auth-Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "30e021d2-b764-4040-8ff7-68fa45e9b8b3",
+    "name": "hakuna Time Tracking Absences Overview API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The hakuna REST API provides programmatic access to the hakuna time-tracking and personnel-management platform: the running timer, time entries, absences, projects, tasks, clients, users, and account-wide company settings. Personal endpoints act in the context of the authenticated user; management endpoints require an admin token and the organization endpoint requires an organization-level token. All requests and responses are JSON. Generated by the API Evangelist enrichment pipeline from the published API documentation; not an official hakuna machine-readable specification.\n\nContact Support:\n Name: hakuna Support",
+      "type": "text/plain"
+    }
+  }
+}

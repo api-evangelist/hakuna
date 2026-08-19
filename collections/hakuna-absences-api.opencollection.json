@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "hakuna Time Tracking Absences API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Auth-Token",
+      "value": "{{X-Auth-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Absences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List absences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/absences",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "The calendar year to list absences for."
+              }
+            ]
+          },
+          "docs": "List absences for the authenticated user, filtered by year."
+        },
+        {
+          "info": {
+            "name": "List absence types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/absence_types"
+          },
+          "docs": "List the absence categories configured for the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,10 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/hakuna-openapi.yml
-description: >-
-  Candidate MCP tool surface derived one-to-one from the operations in the
-  hakuna OpenAPI. No official hosted/remote hakuna MCP server was found; this is
-  a governance starting point, not a published server.
+description: Candidate MCP tool surface derived one-to-one from the operations in the hakuna OpenAPI.
+  No official hosted/remote hakuna MCP server was found; this is a governance starting point, not a published
+  server.
 server:
   name: hakuna
   transport: http
@@ -46,3 +45,9 @@ tools:
 - name: create_managed_client
   description: Create a client (admin).
   source_operation: openapi/hakuna-openapi.yml#createManagedClient
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census

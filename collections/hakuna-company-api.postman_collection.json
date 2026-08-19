@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "a09048bb-629b-42e6-a700-422d5de40459",
+      "name": "Company",
+      "description": {
+        "content": "Account-wide settings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c815ded3-85e8-44a6-b763-fe0ceae298e4",
+          "name": "Get company settings",
+          "request": {
+            "name": "Get company settings",
+            "description": {
+              "content": "Fetch account-wide company settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b47b511-5fc0-4da1-978e-9bc9b2427a25",
+              "name": "Company settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"timezone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c283aee7-78a6-4736-9062-6074587cb341",
+              "name": "The auth token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d488ab95-29ce-4984-a68b-e0b098daabc7",
+              "name": "Too many requests. Limited to 100 requests per minute per customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Maximum requests allowed in the window.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "171"
+                },
+                {
+                  "disabled": false,
+                  "description": "Requests remaining in the current window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "171"
+                },
+                {
+                  "disabled": false,
+                  "description": "Seconds until the window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "171"
+                },
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "171"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.hakuna.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Auth-Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bb0b6070-a404-4900-9f69-45f7792dd043",
+    "name": "hakuna Time Tracking Absences Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The hakuna REST API provides programmatic access to the hakuna time-tracking and personnel-management platform: the running timer, time entries, absences, projects, tasks, clients, users, and account-wide company settings. Personal endpoints act in the context of the authenticated user; management endpoints require an admin token and the organization endpoint requires an organization-level token. All requests and responses are JSON. Generated by the API Evangelist enrichment pipeline from the published API documentation; not an official hakuna machine-readable specification.\n\nContact Support:\n Name: hakuna Support",
+      "type": "text/plain"
+    }
+  }
+}

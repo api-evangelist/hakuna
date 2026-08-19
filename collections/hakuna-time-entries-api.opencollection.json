@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "hakuna Time Tracking Absences Time Entries API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Auth-Token",
+      "value": "{{X-Auth-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Entries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List time entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/time_entries"
+          },
+          "docs": "List recorded time entries for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.hakuna.ch/api/v1/time_entries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new recorded block of worked time."
+        },
+        {
+          "info": {
+            "name": "Get a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/time_entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Get a time entry"
+        },
+        {
+          "info": {
+            "name": "Update a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.hakuna.ch/api/v1/time_entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a time entry"
+        },
+        {
+          "info": {
+            "name": "Delete a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.hakuna.ch/api/v1/time_entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a time entry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

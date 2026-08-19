@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "hakuna Time Tracking Absences Timer API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Auth-Token",
+      "value": "{{X-Auth-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Timer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the running timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/timer"
+          },
+          "docs": "Retrieve the currently running timer for the authenticated user, if any."
+        },
+        {
+          "info": {
+            "name": "Start the timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.hakuna.ch/api/v1/timer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start a new timer for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Update the running timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.hakuna.ch/api/v1/timer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update attributes of the currently running timer."
+        },
+        {
+          "info": {
+            "name": "Stop the timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.hakuna.ch/api/v1/timer"
+          },
+          "docs": "Stop the currently running timer, converting it into a time entry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,287 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "hakuna Time Tracking Absences Management API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Auth-Token",
+      "value": "{{X-Auth-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List managed projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/projects"
+          },
+          "docs": "List managed projects"
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.hakuna.ch/api/v1/management/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a project"
+        },
+        {
+          "info": {
+            "name": "Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Get a project"
+        },
+        {
+          "info": {
+            "name": "Update a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.hakuna.ch/api/v1/management/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a project"
+        },
+        {
+          "info": {
+            "name": "Delete a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.hakuna.ch/api/v1/management/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a project"
+        },
+        {
+          "info": {
+            "name": "List managed clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/clients"
+          },
+          "docs": "List managed clients"
+        },
+        {
+          "info": {
+            "name": "Create a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.hakuna.ch/api/v1/management/clients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a client"
+        },
+        {
+          "info": {
+            "name": "Get a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/clients/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Get a client"
+        },
+        {
+          "info": {
+            "name": "Update a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.hakuna.ch/api/v1/management/clients/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a client"
+        },
+        {
+          "info": {
+            "name": "Delete a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.hakuna.ch/api/v1/management/clients/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a client"
+        },
+        {
+          "info": {
+            "name": "List managed tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/tasks"
+          },
+          "docs": "List managed tasks"
+        },
+        {
+          "info": {
+            "name": "Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.hakuna.ch/api/v1/management/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a task"
+        },
+        {
+          "info": {
+            "name": "Get a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.hakuna.ch/api/v1/management/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Get a task"
+        },
+        {
+          "info": {
+            "name": "Update a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.hakuna.ch/api/v1/management/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a task"
+        },
+        {
+          "info": {
+            "name": "Delete a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.hakuna.ch/api/v1/management/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
