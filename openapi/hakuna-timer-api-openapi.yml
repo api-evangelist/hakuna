@@ -102,16 +102,13 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Client:
+    Error:
       type: object
-      description: A client that projects belong to.
+      description: JSON error object with a descriptive message.
       properties:
-        id:
+        message:
           type: string
-        name:
-          type: string
-        archived:
-          type: boolean
+          description: Human-readable description of the error.
     Timer:
       type: object
       description: The running timer for a user.
@@ -127,25 +124,6 @@ components:
           $ref: '#/components/schemas/Project'
         note:
           type: string
-    TimerInput:
-      type: object
-      properties:
-        start_time:
-          type: string
-          format: date-time
-        task_id:
-          type: string
-        project_id:
-          type: string
-        note:
-          type: string
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
     Project:
       type: object
       description: A project that time can be tracked against.
@@ -158,6 +136,16 @@ components:
           type: boolean
         client:
           $ref: '#/components/schemas/Client'
+    Client:
+      type: object
+      description: A client that projects belong to.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
     Task:
       type: object
       description: A categorization task.
@@ -168,13 +156,19 @@ components:
           type: string
         archived:
           type: boolean
+    TimerInput:
+      type: object
+      properties:
+        start_time:
+          type: string
+          format: date-time
+        task_id:
+          type: string
+        project_id:
+          type: string
+        note:
+          type: string
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     UnprocessableEntity:
       description: The request payload failed validation.
       content:
@@ -200,6 +194,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:

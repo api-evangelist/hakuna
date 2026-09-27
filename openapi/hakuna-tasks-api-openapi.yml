@@ -40,7 +40,31 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  schemas:
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    Task:
+      type: object
+      description: A categorization task.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
   responses:
+    Unauthorized:
+      description: The auth token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     RateLimited:
       description: Too many requests. Limited to 100 requests per minute per customer.
       headers:
@@ -64,30 +88,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  schemas:
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    Task:
-      type: object
-      description: A categorization task.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
   securitySchemes:
     AuthToken:
       type: apiKey

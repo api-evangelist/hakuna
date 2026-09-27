@@ -127,6 +127,43 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    Project:
+      type: object
+      description: A project that time can be tracked against.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        client:
+          $ref: '#/components/schemas/Client'
+    TimeEntryInput:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        task_id:
+          type: string
+        project_id:
+          type: string
+        note:
+          type: string
     Client:
       type: object
       description: A client that projects belong to.
@@ -162,9 +199,9 @@ components:
           $ref: '#/components/schemas/Project'
         user:
           $ref: '#/components/schemas/User'
-    Project:
+    Task:
       type: object
-      description: A project that time can be tracked against.
+      description: A categorization task.
       properties:
         id:
           type: string
@@ -172,8 +209,6 @@ components:
           type: string
         archived:
           type: boolean
-        client:
-          $ref: '#/components/schemas/Client'
     User:
       type: object
       description: A user of the account.
@@ -187,41 +222,6 @@ components:
           format: email
         role:
           type: string
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    TimeEntryInput:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        task_id:
-          type: string
-        project_id:
-          type: string
-        note:
-          type: string
-    Task:
-      type: object
-      description: A categorization task.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
   parameters:
     Id:
       name: id
@@ -231,12 +231,6 @@ components:
         type: string
       description: The unique identifier of the resource.
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     UnprocessableEntity:
       description: The request payload failed validation.
       content:
@@ -268,6 +262,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:

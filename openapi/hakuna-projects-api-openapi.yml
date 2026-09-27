@@ -41,16 +41,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Client:
-      type: object
-      description: A client that projects belong to.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
     Error:
       type: object
       description: JSON error object with a descriptive message.
@@ -70,13 +60,17 @@ components:
           type: boolean
         client:
           $ref: '#/components/schemas/Client'
+    Client:
+      type: object
+      description: A client that projects belong to.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     RateLimited:
       description: Too many requests. Limited to 100 requests per minute per customer.
       headers:
@@ -96,6 +90,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:

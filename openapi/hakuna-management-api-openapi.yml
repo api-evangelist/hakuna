@@ -333,37 +333,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Task:
-      type: object
-      description: A categorization task.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    Client:
-      type: object
-      description: A client that projects belong to.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    ProjectInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        client_id:
-          type: string
-        archived:
-          type: boolean
     Error:
       type: object
       description: JSON error object with a descriptive message.
@@ -371,6 +340,18 @@ components:
         message:
           type: string
           description: Human-readable description of the error.
+    Project:
+      type: object
+      description: A project that time can be tracked against.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        client:
+          $ref: '#/components/schemas/Client'
     TaskInput:
       type: object
       required:
@@ -389,9 +370,9 @@ components:
           type: string
         archived:
           type: boolean
-    Project:
+    Client:
       type: object
-      description: A project that time can be tracked against.
+      description: A client that projects belong to.
       properties:
         id:
           type: string
@@ -399,8 +380,27 @@ components:
           type: string
         archived:
           type: boolean
-        client:
-          $ref: '#/components/schemas/Client'
+    Task:
+      type: object
+      description: A categorization task.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    ProjectInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        client_id:
+          type: string
+        archived:
+          type: boolean
   parameters:
     Id:
       name: id
@@ -410,12 +410,6 @@ components:
         type: string
       description: The unique identifier of the resource.
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     UnprocessableEntity:
       description: The request payload failed validation.
       content:
@@ -447,6 +441,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:
