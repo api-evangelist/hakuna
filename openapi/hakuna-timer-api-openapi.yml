@@ -101,74 +101,13 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  schemas:
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    Timer:
-      type: object
-      description: The running timer for a user.
-      properties:
-        start_time:
-          type: string
-          format: date-time
-        duration:
-          type: string
-        task:
-          $ref: '#/components/schemas/Task'
-        project:
-          $ref: '#/components/schemas/Project'
-        note:
-          type: string
-    Project:
-      type: object
-      description: A project that time can be tracked against.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-        client:
-          $ref: '#/components/schemas/Client'
-    Client:
-      type: object
-      description: A client that projects belong to.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    Task:
-      type: object
-      description: A categorization task.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    TimerInput:
-      type: object
-      properties:
-        start_time:
-          type: string
-          format: date-time
-        task_id:
-          type: string
-        project_id:
-          type: string
-        note:
-          type: string
   responses:
+    Unauthorized:
+      description: The auth token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     UnprocessableEntity:
       description: The request payload failed validation.
       content:
@@ -198,12 +137,73 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  schemas:
+    Task:
+      type: object
+      description: A categorization task.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    Project:
+      type: object
+      description: A project that time can be tracked against.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        client:
+          $ref: '#/components/schemas/Client'
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    Client:
+      type: object
+      description: A client that projects belong to.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    TimerInput:
+      type: object
+      properties:
+        start_time:
+          type: string
+          format: date-time
+        task_id:
+          type: string
+        project_id:
+          type: string
+        note:
+          type: string
+    Timer:
+      type: object
+      description: The running timer for a user.
+      properties:
+        start_time:
+          type: string
+          format: date-time
+        duration:
+          type: string
+        task:
+          $ref: '#/components/schemas/Task'
+        project:
+          $ref: '#/components/schemas/Project'
+        note:
+          type: string
   securitySchemes:
     AuthToken:
       type: apiKey

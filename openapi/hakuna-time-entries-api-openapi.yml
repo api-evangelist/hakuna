@@ -126,113 +126,9 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  schemas:
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    Project:
-      type: object
-      description: A project that time can be tracked against.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-        client:
-          $ref: '#/components/schemas/Client'
-    TimeEntryInput:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        task_id:
-          type: string
-        project_id:
-          type: string
-        note:
-          type: string
-    Client:
-      type: object
-      description: A client that projects belong to.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    TimeEntry:
-      type: object
-      description: A recorded block of worked time.
-      properties:
-        id:
-          type: string
-        date:
-          type: string
-          format: date
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        duration:
-          type: string
-        note:
-          type: string
-        task:
-          $ref: '#/components/schemas/Task'
-        project:
-          $ref: '#/components/schemas/Project'
-        user:
-          $ref: '#/components/schemas/User'
-    Task:
-      type: object
-      description: A categorization task.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-    User:
-      type: object
-      description: A user of the account.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        role:
-          type: string
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: The unique identifier of the resource.
   responses:
-    UnprocessableEntity:
-      description: The request payload failed validation.
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:
@@ -266,12 +162,116 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: The auth token is missing or invalid.
+    UnprocessableEntity:
+      description: The request payload failed validation.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  schemas:
+    Task:
+      type: object
+      description: A categorization task.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    Project:
+      type: object
+      description: A project that time can be tracked against.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        client:
+          $ref: '#/components/schemas/Client'
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    Client:
+      type: object
+      description: A client that projects belong to.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    User:
+      type: object
+      description: A user of the account.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+    TimeEntryInput:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        task_id:
+          type: string
+        project_id:
+          type: string
+        note:
+          type: string
+    TimeEntry:
+      type: object
+      description: A recorded block of worked time.
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        duration:
+          type: string
+        note:
+          type: string
+        task:
+          $ref: '#/components/schemas/Task'
+        project:
+          $ref: '#/components/schemas/Project'
+        user:
+          $ref: '#/components/schemas/User'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of the resource.
   securitySchemes:
     AuthToken:
       type: apiKey
