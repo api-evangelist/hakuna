@@ -40,36 +40,6 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Too many requests. Limited to 100 requests per minute per customer.
-      headers:
-        X-RateLimit-Limit:
-          schema:
-            type: integer
-          description: Maximum requests allowed in the window.
-        X-RateLimit-Remaining:
-          schema:
-            type: integer
-          description: Requests remaining in the current window.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Seconds until the window resets.
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -103,6 +73,36 @@ components:
         since:
           type: string
           format: date-time
+  responses:
+    Unauthorized:
+      description: The auth token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Too many requests. Limited to 100 requests per minute per customer.
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+          description: Maximum requests allowed in the window.
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+          description: Requests remaining in the current window.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Seconds until the window resets.
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     AuthToken:
       type: apiKey

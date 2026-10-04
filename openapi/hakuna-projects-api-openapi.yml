@@ -40,6 +40,36 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  schemas:
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    Client:
+      type: object
+      description: A client that projects belong to.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+    Project:
+      type: object
+      description: A project that time can be tracked against.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        client:
+          $ref: '#/components/schemas/Client'
   responses:
     Unauthorized:
       description: The auth token is missing or invalid.
@@ -70,36 +100,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  schemas:
-    Project:
-      type: object
-      description: A project that time can be tracked against.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
-        client:
-          $ref: '#/components/schemas/Client'
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    Client:
-      type: object
-      description: A client that projects belong to.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        archived:
-          type: boolean
   securitySchemes:
     AuthToken:
       type: apiKey

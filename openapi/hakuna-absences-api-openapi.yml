@@ -69,6 +69,34 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
+    AbsenceType:
+      type: object
+      description: A category of absence configured for the account.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    User:
+      type: object
+      description: A user of the account.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
     Absence:
       type: object
       description: An absence record for a user.
@@ -87,34 +115,6 @@ components:
           $ref: '#/components/schemas/AbsenceType'
         user:
           $ref: '#/components/schemas/User'
-    AbsenceType:
-      type: object
-      description: A category of absence configured for the account.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
-    User:
-      type: object
-      description: A user of the account.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        role:
-          type: string
   responses:
     Unauthorized:
       description: The auth token is missing or invalid.

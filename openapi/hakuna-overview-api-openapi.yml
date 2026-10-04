@@ -69,6 +69,13 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
     Overview:
       type: object
       description: Aggregate metrics for the authenticated user.
@@ -84,13 +91,6 @@ components:
               type: number
             total:
               type: number
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
   securitySchemes:
     AuthToken:
       type: apiKey
