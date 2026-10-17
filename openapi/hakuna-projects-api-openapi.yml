@@ -71,12 +71,6 @@ components:
         client:
           $ref: '#/components/schemas/Client'
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     RateLimited:
       description: Too many requests. Limited to 100 requests per minute per customer.
       headers:
@@ -96,6 +90,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:

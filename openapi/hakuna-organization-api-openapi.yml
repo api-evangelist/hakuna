@@ -41,13 +41,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Error:
-      type: object
-      description: JSON error object with a descriptive message.
-      properties:
-        message:
-          type: string
-          description: Human-readable description of the error.
     User:
       type: object
       description: A user of the account.
@@ -61,6 +54,13 @@ components:
           format: email
         role:
           type: string
+    Error:
+      type: object
+      description: JSON error object with a descriptive message.
+      properties:
+        message:
+          type: string
+          description: Human-readable description of the error.
     OrganizationStatus:
       type: object
       description: Presence/absence status for a user.
@@ -74,12 +74,6 @@ components:
           type: string
           format: date-time
   responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     RateLimited:
       description: Too many requests. Limited to 100 requests per minute per customer.
       headers:
@@ -99,6 +93,12 @@ components:
           schema:
             type: integer
           description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
       content:
         application/json:
           schema:

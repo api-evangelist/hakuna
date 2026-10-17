@@ -332,8 +332,59 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Too many requests. Limited to 100 requests per minute per customer.
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+          description: Maximum requests allowed in the window.
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+          description: Requests remaining in the current window.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Seconds until the window resets.
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnprocessableEntity:
+      description: The request payload failed validation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: The auth token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     ClientInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        archived:
+          type: boolean
+    TaskInput:
       type: object
       required:
       - name
@@ -349,18 +400,9 @@ components:
         message:
           type: string
           description: Human-readable description of the error.
-    TaskInput:
+    Client:
       type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        archived:
-          type: boolean
-    Task:
-      type: object
-      description: A categorization task.
+      description: A client that projects belong to.
       properties:
         id:
           type: string
@@ -368,9 +410,9 @@ components:
           type: string
         archived:
           type: boolean
-    Client:
+    Task:
       type: object
-      description: A client that projects belong to.
+      description: A categorization task.
       properties:
         id:
           type: string
@@ -409,48 +451,6 @@ components:
       schema:
         type: string
       description: The unique identifier of the resource.
-  responses:
-    Unauthorized:
-      description: The auth token is missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Too many requests. Limited to 100 requests per minute per customer.
-      headers:
-        X-RateLimit-Limit:
-          schema:
-            type: integer
-          description: Maximum requests allowed in the window.
-        X-RateLimit-Remaining:
-          schema:
-            type: integer
-          description: Requests remaining in the current window.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Seconds until the window resets.
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    UnprocessableEntity:
-      description: The request payload failed validation.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     AuthToken:
       type: apiKey
