@@ -64,6 +64,140 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hakuna is a company surfaced as a portfolio company of earlybird and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+hakuna AG is a Swiss digital time-tracking and personnel-management platform for SMEs. The browser- and mobile-based product centralizes workforce administration: time recording with a running timer, absence and vacation management, expense processing, project and client tracking, task categorization, shift planning, personnel records, and compliance monitoring against Swiss labor-law requirements. hakuna is "100% Swiss" — all data is stored in Switzerland under Swiss data-protection law (DSG) — and requires no additional hardware terminals or badges. It exposes a token-authenticated REST API (X-Auth-Token) over JSON at app.hakuna.ch/api/v1 covering the timer, time entries, absences, projects, tasks, clients, users, company settings, and an organization-wide presence status endpoint, with admin-only management endpoints and a documented 100 requests/minute rate limit.
 
-Backed by: earlybird
+**Areas:** Company · Time Tracking · Human Resources · Workforce Management · Absence Management · Project Tracking · Software-as-a-Service · Switzerland · Small Business
+
+## Hakuna on APIs.io
+
+Everything profiled for Hakuna is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hakuna/](https://apis.io/providers/hakuna/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [Hakuna Absences API](https://apis.io/apis/hakuna/hakuna-absences-api/) — Absence records and absence categories
+- [Hakuna Company API](https://apis.io/apis/hakuna/hakuna-company-api/) — Account-wide settings
+- [Hakuna Management API](https://apis.io/apis/hakuna/hakuna-management-api/) — Admin-only management of projects, clients and tasks
+- [Hakuna Organization API](https://apis.io/apis/hakuna/hakuna-organization-api/) — Organization-wide presence and absence status
+- [Hakuna Overview API](https://apis.io/apis/hakuna/hakuna-overview-api/) — Aggregate metrics for the authenticated user
+- [Hakuna Projects API](https://apis.io/apis/hakuna/hakuna-projects-api/) — Active and archived projects
+- [Hakuna Tasks API](https://apis.io/apis/hakuna/hakuna-tasks-api/) — Categorization tasks
+- [Hakuna Time Entries API](https://apis.io/apis/hakuna/hakuna-time-entries-api/) — Recorded blocks of worked time
+- [Hakuna Timer API](https://apis.io/apis/hakuna/hakuna-timer-api/) — The single running timer for the authenticated user
+- [Hakuna Users API](https://apis.io/apis/hakuna/hakuna-users-api/) — Users of the account
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [hakuna](https://apis.io/servers/hakuna/hakuna/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Hakuna Agentic Access](https://apis.io/agentic-access/hakuna/hakuna-agentic-access/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [hakuna Time Tracking Absences API](https://apis.io/collections/hakuna/open-hakuna-absences-api/)
+- [hakuna Time Tracking Absences Company API](https://apis.io/collections/hakuna/open-hakuna-company-api/)
+- [hakuna Time Tracking Absences Management API](https://apis.io/collections/hakuna/open-hakuna-management-api/)
+- [hakuna Time Tracking Absences Organization API](https://apis.io/collections/hakuna/open-hakuna-organization-api/)
+- [hakuna Time Tracking Absences Overview API](https://apis.io/collections/hakuna/open-hakuna-overview-api/)
+- [hakuna Time Tracking Absences Projects API](https://apis.io/collections/hakuna/open-hakuna-projects-api/)
+- [hakuna Time Tracking Absences Tasks API](https://apis.io/collections/hakuna/open-hakuna-tasks-api/)
+- [hakuna Time Tracking Absences Time Entries API](https://apis.io/collections/hakuna/open-hakuna-time-entries-api/)
+- [hakuna Time Tracking Absences Timer API](https://apis.io/collections/hakuna/open-hakuna-timer-api/)
+- [hakuna Time Tracking Absences Users API](https://apis.io/collections/hakuna/open-hakuna-users-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Hakuna Openapi Overlay](https://apis.io/overlays/hakuna/hakuna-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hakuna Authentication](https://apis.io/security/hakuna/hakuna-authentication/)
+- [Hakuna Domain Security](https://apis.io/security/hakuna/hakuna-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Hakuna Rate Limits](https://apis.io/rate-limits/hakuna/hakuna-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.hakuna.ch)
+- [Documentation](https://www.hakuna.ch/docs)
+- [API reference](https://app.hakuna.ch/api_docs)
+- [Pricing](https://www.hakuna.ch/preise)
+- [Sign up](https://app.hakuna.ch/sign_up)
+- [Support](https://www.hakuna.ch/kontakt)
+- [Blog](https://www.hakuna.ch/blog)
+- [Terms of service](https://www.hakuna.ch/rechtliches/agb)
+- [Privacy policy](https://www.hakuna.ch/rechtliches/datenschutz)
+
+## API Evangelist rating
+
+**Kin Score 33.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 17.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 44.7 |
+
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hakuna/](https://apis.io/providers/hakuna/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hakuna: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hakuna/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
